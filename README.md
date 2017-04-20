@@ -12,7 +12,7 @@ RealmSugar is a syntactic sugar to remove unnecessary code for retrieving notifi
 
 ## Summary
 
-RMRoute makes it easy to provide access to all your features from anywhere in your app. With bigger applications it's sometimes handy to have entry points to your features, without referencing to them by class.
+RealmSugar is an extension of only 15 lines of code to make retrieving notifications more readable. You need less boilerplate code to get updates of each realm instance.
 
 ## Features
 
