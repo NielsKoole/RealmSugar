@@ -16,8 +16,8 @@ extension Object {
             guard let s = self else { return }
             
             switch change {
-            case .change(let props):
-                let mapped = props.map { $0.name }
+            case .change(let changedProperties):
+                let mapped = changedProperties.map { $0.name }
                 let foundProps = mapped.filter { properties.index(of: $0) != nil }
                 
                 if foundProps.isEmpty == false {
