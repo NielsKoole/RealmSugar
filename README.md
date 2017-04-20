@@ -17,6 +17,7 @@ RealmSugar is an extension of only 15 lines of code to make retrieving notificat
 ## Features
 
 - [x] Easy way to get realm instance notifications with less boilerplate code.
+- [ ] Looking for a way to improve it with generics to avoid the need to guard type safety.
 
 ## Requirements
 
