@@ -7,21 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23F1A45281F76425FEA9F69C /* Pods_RealmSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CEA26FF24BAB8D941A63BF /* Pods_RealmSugar.framework */; };
 		D4BAD27A1EA94BDC003FFFB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BAD2791EA94BDC003FFFB5 /* AppDelegate.swift */; };
-		D4BAD27C1EA94BDD003FFFB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BAD27B1EA94BDD003FFFB5 /* ViewController.swift */; };
-		D4BAD27F1EA94BDD003FFFB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BAD27D1EA94BDD003FFFB5 /* Main.storyboard */; };
-		D4BAD2811EA94BDD003FFFB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4BAD2801EA94BDD003FFFB5 /* Assets.xcassets */; };
-		D4BAD2841EA94BDD003FFFB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BAD2821EA94BDD003FFFB5 /* LaunchScreen.storyboard */; };
+		D4BAD28D1EA94CC0003FFFB5 /* Object+Notify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BAD28C1EA94CC0003FFFB5 /* Object+Notify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B3BB6FBD2E57B89A6E0A530 /* Pods-RealmSugar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmSugar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RealmSugar/Pods-RealmSugar.debug.xcconfig"; sourceTree = "<group>"; };
+		A8CEA26FF24BAB8D941A63BF /* Pods_RealmSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BAD2761EA94BDC003FFFB5 /* RealmSugar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmSugar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BAD2791EA94BDC003FFFB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D4BAD27B1EA94BDD003FFFB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D4BAD27E1EA94BDD003FFFB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D4BAD2801EA94BDD003FFFB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D4BAD2831EA94BDD003FFFB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4BAD2851EA94BDD003FFFB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4BAD28C1EA94CC0003FFFB5 /* Object+Notify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Object+Notify.swift"; sourceTree = "<group>"; };
+		EE3D5BF14D518B5150C33906 /* Pods-RealmSugar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmSugar.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealmSugar/Pods-RealmSugar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +27,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F1A45281F76425FEA9F69C /* Pods_RealmSugar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C57077074D9F78B2D3955C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A8CEA26FF24BAB8D941A63BF /* Pods_RealmSugar.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A425C90543D963D42B8D8910 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6B3BB6FBD2E57B89A6E0A530 /* Pods-RealmSugar.debug.xcconfig */,
+				EE3D5BF14D518B5150C33906 /* Pods-RealmSugar.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D4BAD26D1EA94BDC003FFFB5 = {
 			isa = PBXGroup;
 			children = (
 				D4BAD2781EA94BDC003FFFB5 /* RealmSugar */,
 				D4BAD2771EA94BDC003FFFB5 /* Products */,
+				A425C90543D963D42B8D8910 /* Pods */,
+				4C57077074D9F78B2D3955C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +72,19 @@
 		D4BAD2781EA94BDC003FFFB5 /* RealmSugar */ = {
 			isa = PBXGroup;
 			children = (
+				D4BAD28B1EA94C8E003FFFB5 /* Source */,
 				D4BAD2791EA94BDC003FFFB5 /* AppDelegate.swift */,
-				D4BAD27B1EA94BDD003FFFB5 /* ViewController.swift */,
-				D4BAD27D1EA94BDD003FFFB5 /* Main.storyboard */,
-				D4BAD2801EA94BDD003FFFB5 /* Assets.xcassets */,
-				D4BAD2821EA94BDD003FFFB5 /* LaunchScreen.storyboard */,
 				D4BAD2851EA94BDD003FFFB5 /* Info.plist */,
 			);
 			path = RealmSugar;
+			sourceTree = "<group>";
+		};
+		D4BAD28B1EA94C8E003FFFB5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D4BAD28C1EA94CC0003FFFB5 /* Object+Notify.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +94,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4BAD2881EA94BDD003FFFB5 /* Build configuration list for PBXNativeTarget "RealmSugar" */;
 			buildPhases = (
+				1C9E789CEEDC9D495FE75CBC /* [CP] Check Pods Manifest.lock */,
 				D4BAD2721EA94BDC003FFFB5 /* Sources */,
 				D4BAD2731EA94BDC003FFFB5 /* Frameworks */,
 				D4BAD2741EA94BDC003FFFB5 /* Resources */,
+				A7DDEB1DC305F9B0118BED4E /* [CP] Embed Pods Frameworks */,
+				40D2D619FFE21EA6915E79E7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,44 +150,70 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4BAD2841EA94BDD003FFFB5 /* LaunchScreen.storyboard in Resources */,
-				D4BAD2811EA94BDD003FFFB5 /* Assets.xcassets in Resources */,
-				D4BAD27F1EA94BDD003FFFB5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C9E789CEEDC9D495FE75CBC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		40D2D619FFE21EA6915E79E7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RealmSugar/Pods-RealmSugar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7DDEB1DC305F9B0118BED4E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RealmSugar/Pods-RealmSugar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D4BAD2721EA94BDC003FFFB5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4BAD27C1EA94BDD003FFFB5 /* ViewController.swift in Sources */,
 				D4BAD27A1EA94BDC003FFFB5 /* AppDelegate.swift in Sources */,
+				D4BAD28D1EA94CC0003FFFB5 /* Object+Notify.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		D4BAD27D1EA94BDD003FFFB5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D4BAD27E1EA94BDD003FFFB5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D4BAD2821EA94BDD003FFFB5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D4BAD2831EA94BDD003FFFB5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D4BAD2861EA94BDD003FFFB5 /* Debug */ = {
@@ -261,10 +313,12 @@
 		};
 		D4BAD2891EA94BDD003FFFB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B3BB6FBD2E57B89A6E0A530 /* Pods-RealmSugar.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = DM4DAEGDNR;
 				INFOPLIST_FILE = RealmSugar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nielskoole.RealmSugar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -274,10 +328,12 @@
 		};
 		D4BAD28A1EA94BDD003FFFB5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE3D5BF14D518B5150C33906 /* Pods-RealmSugar.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = DM4DAEGDNR;
 				INFOPLIST_FILE = RealmSugar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nielskoole.RealmSugar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -304,6 +360,7 @@
 				D4BAD28A1EA94BDD003FFFB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
