@@ -11,7 +11,7 @@ import RealmSwift
 
 extension Object {
     
-    func notify(for properties: [String], handler: ((Object) -> Void)?) -> NotificationToken {
+    public func notify(for properties: [String], handler: ((Object) -> Void)?) -> NotificationToken {
         return addNotificationBlock({ [weak self] (change) in
             guard let s = self else { return }
             
