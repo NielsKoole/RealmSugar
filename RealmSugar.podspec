@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = 'RealmSugar'
-  spec.version          = '0.1'
+  spec.version          = '0.2'
   spec.license          = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   spec.homepage         = 'https://github.com/nielskoole/RealmSugar'
   spec.authors          = { 'Niels Koole' => 'nielskoole@icloud.com' }
