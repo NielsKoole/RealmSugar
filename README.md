@@ -59,7 +59,7 @@ $ pod install
 ```swift
 let instance = Employee()
 
-let token = instance.notifierUpdated(properties: [#keyPath(Employee.name)], handler: { [weak self] (object) in
+let token = instance.notify(for: [#keyPath(Employee.name)], handler: { [weak self] (object) in
     guard let employee = object as? Employee else { return }
     
     dump(employee.name)
