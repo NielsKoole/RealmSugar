@@ -11,7 +11,16 @@ import RealmSwift
 
 extension Object {
     
-    public func notify(for properties: [String], handler: ((Object) -> Void)?) -> NotificationToken {
+    public func fireAndNotify(for properties: [String], handler: @escaping ((Object) -> Void)) -> NotificationToken {
+        
+        // Fire right away
+        handler(self)
+        
+        // Return notification block
+        return notify(for: properties, handler: handler)
+    }
+    
+    public func notify(for properties: [String], handler: @escaping ((Object) -> Void)) -> NotificationToken {
         return addNotificationBlock({ [weak self] (change) in
             guard let s = self else { return }
             
@@ -21,7 +30,7 @@ extension Object {
                 let foundProps = mapped.filter { properties.index(of: $0) != nil }
                 
                 if foundProps.isEmpty == false {
-                    handler?(s)
+                    handler(s)
                 }
             default: break
             }
