@@ -34,11 +34,11 @@ protocol NotifyRealmCollection: class, RealmCollection { }
 
 extension NotifyRealmCollection {
     
-    func fireAndNotify(type: NotifyCollectionType = .all, handler: @escaping ((Self) -> Void)) -> NotificationToken {
+    public func fireAndNotify(type: NotifyCollectionType = .all, handler: @escaping ((Self) -> Void)) -> NotificationToken {
         return _notify(fire: true, type: type, handler: handler)
     }
     
-    func notify(type: NotifyCollectionType = .all, handler: @escaping ((Self) -> Void)) -> NotificationToken {
+    public func notify(type: NotifyCollectionType = .all, handler: @escaping ((Self) -> Void)) -> NotificationToken {
         return _notify(fire: false, type: type, handler: handler)
     }
     
