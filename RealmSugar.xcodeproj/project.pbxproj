@@ -10,6 +10,7 @@
 		23F1A45281F76425FEA9F69C /* Pods_RealmSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CEA26FF24BAB8D941A63BF /* Pods_RealmSugar.framework */; };
 		D4BAD27A1EA94BDC003FFFB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BAD2791EA94BDC003FFFB5 /* AppDelegate.swift */; };
 		D4BAD28D1EA94CC0003FFFB5 /* Object+Notify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BAD28C1EA94CC0003FFFB5 /* Object+Notify.swift */; };
+		D4F6BFF71EAABF5E00F61386 /* RealmCollection+Notify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F6BFF61EAABF5E00F61386 /* RealmCollection+Notify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		D4BAD2791EA94BDC003FFFB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4BAD2851EA94BDD003FFFB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4BAD28C1EA94CC0003FFFB5 /* Object+Notify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Object+Notify.swift"; sourceTree = "<group>"; };
+		D4F6BFF61EAABF5E00F61386 /* RealmCollection+Notify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RealmCollection+Notify.swift"; sourceTree = "<group>"; };
 		EE3D5BF14D518B5150C33906 /* Pods-RealmSugar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmSugar.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealmSugar/Pods-RealmSugar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				D4BAD28C1EA94CC0003FFFB5 /* Object+Notify.swift */,
+				D4F6BFF61EAABF5E00F61386 /* RealmCollection+Notify.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4F6BFF71EAABF5E00F61386 /* RealmCollection+Notify.swift in Sources */,
 				D4BAD27A1EA94BDC003FFFB5 /* AppDelegate.swift in Sources */,
 				D4BAD28D1EA94CC0003FFFB5 /* Object+Notify.swift in Sources */,
 			);
