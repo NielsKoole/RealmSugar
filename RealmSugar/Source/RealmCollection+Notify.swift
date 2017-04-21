@@ -19,17 +19,30 @@ enum NotifyCollectionType {
     case modifiedDeleted
 }
 
-extension AnyRealmCollection {
+// MARK: - Implement extension
+
+extension List: NotifyRealmCollection { }
+
+extension Results: NotifyRealmCollection { }
+
+extension LinkingObjects: NotifyRealmCollection { }
+
+
+// MARK: - Protocol definition + implementation
+
+protocol NotifyRealmCollection: class, RealmCollection { }
+
+extension NotifyRealmCollection {
     
-    func fireAndNotify(type: NotifyCollectionType = .all, handler: @escaping ((AnyRealmCollection) -> Void)) -> NotificationToken {
+    func fireAndNotify(type: NotifyCollectionType = .all, handler: @escaping ((Self) -> Void)) -> NotificationToken {
         return _notify(fire: true, type: type, handler: handler)
     }
     
-    func notify(type: NotifyCollectionType = .all, handler: @escaping ((AnyRealmCollection) -> Void)) -> NotificationToken {
+    func notify(type: NotifyCollectionType = .all, handler: @escaping ((Self) -> Void)) -> NotificationToken {
         return _notify(fire: false, type: type, handler: handler)
     }
     
-    private func _notify(fire: Bool, type: NotifyCollectionType, handler: @escaping ((AnyRealmCollection) -> Void)) -> NotificationToken {
+    private func _notify(fire: Bool, type: NotifyCollectionType, handler: @escaping ((Self) -> Void)) -> NotificationToken {
         return addNotificationBlock({ [weak self] (change) in
             guard let s = self else { return }
             
