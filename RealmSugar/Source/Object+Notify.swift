@@ -9,9 +9,18 @@
 import Foundation
 import RealmSwift
 
-extension Object {
+// MARK: - Implement extension
+
+extension Object: NotifyRealmObject { }
+
+
+// MARK: - Protocol definition + implementation
+
+public protocol NotifyRealmObject: class { }
+
+extension NotifyRealmObject where Self: Object {
     
-    public func fireAndNotify(for properties: [String]? = nil, handler: @escaping ((Object) -> Void)) -> NotificationToken {
+    public func fireAndNotify(for properties: [String]? = nil, handler: @escaping ((Self) -> Void)) -> NotificationToken {
         
         // Fire right away
         handler(self)
@@ -20,7 +29,7 @@ extension Object {
         return notify(for: properties, handler: handler)
     }
     
-    public func notify(for properties: [String]? = nil, handler: @escaping ((Object) -> Void)) -> NotificationToken {
+    public func notify(for properties: [String]? = nil, handler: @escaping ((Self) -> Void)) -> NotificationToken {
         return addNotificationBlock({ [weak self] (change) in
             guard let s = self else { return }
             

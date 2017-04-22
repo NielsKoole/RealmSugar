@@ -16,8 +16,9 @@ RealmSugar is an extension of only 15 lines of code to make retrieving notificat
 
 ## Features
 
-- [x] Easy way to get realm instance notifications with less boilerplate code.
-- [ ] Looking for a way to improve it with generics to avoid the need to guard type safety.
+- [x] Easy way to get realm object notifications with less boilerplate code.
+- [x] Looking for a way to improve it to avoid the need to guard type safety.
+- [x] Sugar to get notifications on Lists, Results and LinkingObjects.
 
 ## Requirements
 
@@ -57,15 +58,77 @@ $ pod install
 
 ## Usage
 
+### Notifications on objects
+
+Get notified on all changed properties.
+
 ```swift
 let instance = Employee()
 
-let token = instance.notify(for: [#keyPath(Employee.name)], handler: { [weak self] (object) in
-    guard let employee = object as? Employee else { return }
+let token = instance.notify { [weak self] (employee) in
     
     // Update label
     self?.textLabel.text = employee.name
-})
+}
+```
+
+Get notified when an update comes in for specific properties.
+
+```swift
+let instance = Employee()
+
+let token = instance.notify(for: [#keyPath(Employee.name)]) { [weak self] (employee) in
+    
+    // Update label
+    self?.textLabel.text = employee.name
+}
+```
+
+Get notified on initiation and on updates.
+
+```swift
+let instance = Employee()
+
+let token = instance.fireAndNotify(for: [#keyPath(Employee.name)]) { [weak self] (employee) in
+    
+    // Update label
+    self?.textLabel.text = employee.name
+}
+```
+
+### Notifications on collections
+
+Get notified on all changed objects.
+
+```swift
+let realm = try! Realm()
+let token = realm.objects(Employee.self).notify { [weak self] (employees) in
+    
+    // Log all employees
+    employees.forEach { dump($0) }
+}
+```
+
+Specify for which kind of updates you want to get notified.
+
+```swift
+let realm = try! Realm()
+let token = realm.objects(Employee.self).notify(when: .insertedAndDeleted) { [weak self] (employees) in
+    
+    // Log all employees
+    employees.forEach { dump($0) }
+}
+```
+
+Get notified on initiation and on updates.
+
+```swift
+let realm = try! Realm()
+let token = realm.objects(Employee.self).fireAndNotify(when: .inserted) { [weak self] (employees) in
+    
+    // Log all employees
+    employees.forEach { dump($0) }
+}
 ```
 
 ## Credits

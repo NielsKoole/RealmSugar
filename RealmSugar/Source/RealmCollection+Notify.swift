@@ -9,14 +9,14 @@
 import Foundation
 import RealmSwift
 
-enum NotifyCollectionType {
+public enum NotifyCollectionType {
     case all
     case inserted
     case modified
     case deleted
-    case insertedDeleted
-    case insertedModified
-    case modifiedDeleted
+    case insertedAndDeleted
+    case insertedAndModified
+    case modifiedAndDeleted
 }
 
 // MARK: - Implement extension
@@ -30,15 +30,15 @@ extension LinkingObjects: NotifyRealmCollection { }
 
 // MARK: - Protocol definition + implementation
 
-protocol NotifyRealmCollection: class, RealmCollection { }
+public protocol NotifyRealmCollection: class, RealmCollection { }
 
 extension NotifyRealmCollection {
     
-    public func fireAndNotify(type: NotifyCollectionType = .all, handler: @escaping ((Self) -> Void)) -> NotificationToken {
+    public func fireAndNotify(when type: NotifyCollectionType = .all, handler: @escaping ((Self) -> Void)) -> NotificationToken {
         return _notify(fire: true, type: type, handler: handler)
     }
     
-    public func notify(type: NotifyCollectionType = .all, handler: @escaping ((Self) -> Void)) -> NotificationToken {
+    public func notify(when type: NotifyCollectionType = .all, handler: @escaping ((Self) -> Void)) -> NotificationToken {
         return _notify(fire: false, type: type, handler: handler)
     }
     
@@ -56,9 +56,9 @@ extension NotifyRealmCollection {
                     (type == .inserted && insertions.isEmpty == false) ||
                     (type == .modified && modifications.isEmpty == false) ||
                     (type == .deleted && deletions.isEmpty == false) ||
-                    (type == .insertedModified && insertions.isEmpty == false && modifications.isEmpty == false) ||
-                    (type == .insertedDeleted && insertions.isEmpty == false && deletions.isEmpty == false) ||
-                    (type == .modifiedDeleted && deletions.isEmpty == false && modifications.isEmpty == false) {
+                    (type == .insertedAndModified && insertions.isEmpty == false && modifications.isEmpty == false) ||
+                    (type == .insertedAndDeleted && insertions.isEmpty == false && deletions.isEmpty == false) ||
+                    (type == .modifiedAndDeleted && deletions.isEmpty == false && modifications.isEmpty == false) {
                     handler(s)
                 }
                 
