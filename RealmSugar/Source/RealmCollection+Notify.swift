@@ -10,13 +10,9 @@ import Foundation
 import RealmSwift
 
 public enum NotifyCollectionType {
-    case all
     case inserted
     case modified
     case deleted
-    case insertedAndDeleted
-    case insertedAndModified
-    case modifiedAndDeleted
 }
 
 // MARK: - Implement extension
@@ -34,15 +30,15 @@ public protocol NotifyRealmCollection: class, RealmCollection { }
 
 extension NotifyRealmCollection {
     
-    public func fireAndNotify(when type: NotifyCollectionType = .all, handler: @escaping ((Self) -> Void)) -> NotificationToken {
-        return _notify(fire: true, type: type, handler: handler)
+    public func fireAndNotify(when types: [NotifyCollectionType]? = nil, handler: @escaping ((Self) -> Void)) -> NotificationToken {
+        return _notify(fire: true, types: types, handler: handler)
     }
     
-    public func notify(when type: NotifyCollectionType = .all, handler: @escaping ((Self) -> Void)) -> NotificationToken {
-        return _notify(fire: false, type: type, handler: handler)
+    public func notify(when types: [NotifyCollectionType]? = nil, handler: @escaping ((Self) -> Void)) -> NotificationToken {
+        return _notify(fire: false, types: types, handler: handler)
     }
     
-    private func _notify(fire: Bool, type: NotifyCollectionType, handler: @escaping ((Self) -> Void)) -> NotificationToken {
+    private func _notify(fire: Bool, types: [NotifyCollectionType]?, handler: @escaping ((Self) -> Void)) -> NotificationToken {
         return addNotificationBlock({ [weak self] (change) in
             guard let s = self else { return }
             
@@ -52,13 +48,15 @@ extension NotifyRealmCollection {
                 break
             case .update(_, let deletions, let insertions, let modifications):
                 
-                if type == .all ||
-                    (type == .inserted && insertions.isEmpty == false) ||
-                    (type == .modified && modifications.isEmpty == false) ||
-                    (type == .deleted && deletions.isEmpty == false) ||
-                    (type == .insertedAndModified && insertions.isEmpty == false && modifications.isEmpty == false) ||
-                    (type == .insertedAndDeleted && insertions.isEmpty == false && deletions.isEmpty == false) ||
-                    (type == .modifiedAndDeleted && deletions.isEmpty == false && modifications.isEmpty == false) {
+                // If there are no types specified, we always notify :)
+                guard let types = types else { return handler(s) }
+                
+                // Validate if the correct changes to the collection are followed
+                if types.filter({ $0 == .inserted }).isEmpty == false && insertions.isEmpty == false {
+                    handler(s)
+                } else if types.filter({ $0 == .modified }).isEmpty == false && modifications.isEmpty == false {
+                    handler(s)
+                } else if types.filter({ $0 == .deleted }).isEmpty == false && deletions.isEmpty == false {
                     handler(s)
                 }
                 
