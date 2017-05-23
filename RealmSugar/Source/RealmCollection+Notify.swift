@@ -30,8 +30,16 @@ public protocol NotifyRealmCollection: class, RealmCollection { }
 
 extension NotifyRealmCollection {
     
+    public func fireAndNotify(when type: NotifyCollectionType, handler: @escaping ((Self) -> Void)) -> NotificationToken {
+        return _notify(fire: true, types: [type], handler: handler)
+    }
+    
     public func fireAndNotify(when types: [NotifyCollectionType]? = nil, handler: @escaping ((Self) -> Void)) -> NotificationToken {
         return _notify(fire: true, types: types, handler: handler)
+    }
+    
+    public func notify(when type: NotifyCollectionType, handler: @escaping ((Self) -> Void)) -> NotificationToken {
+        return _notify(fire: false, types: [type], handler: handler)
     }
     
     public func notify(when types: [NotifyCollectionType]? = nil, handler: @escaping ((Self) -> Void)) -> NotificationToken {
@@ -39,13 +47,13 @@ extension NotifyRealmCollection {
     }
     
     private func _notify(fire: Bool, types: [NotifyCollectionType]?, handler: @escaping ((Self) -> Void)) -> NotificationToken {
+        
+        if fire { handler(self) }
+        
         return addNotificationBlock({ [weak self] (change) in
             guard let s = self else { return }
             
             switch change {
-            case .initial:
-                if fire { handler(s) }
-                break
             case .update(_, let deletions, let insertions, let modifications):
                 
                 // If there are no types specified, we always notify :)

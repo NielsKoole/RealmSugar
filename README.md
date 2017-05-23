@@ -76,6 +76,11 @@ Get notified when an update comes in for specific properties.
 
 ```swift
 let instance = Employee()
+let token = instance.notify(for: #keyPath(Employee.name)) { [weak self] (employee) in
+    
+    // Update label
+    self?.textLabel.text = employee.name
+}
 
 let token = instance.notify(for: [#keyPath(Employee.name)]) { [weak self] (employee) in
     
@@ -88,6 +93,12 @@ Get notified on initiation and on updates.
 
 ```swift
 let instance = Employee()
+
+let token = instance.fireAndNotify(for: #keyPath(Employee.name)) { [weak self] (employee) in
+    
+    // Update label
+    self?.textLabel.text = employee.name
+}
 
 let token = instance.fireAndNotify(for: [#keyPath(Employee.name)]) { [weak self] (employee) in
     
@@ -113,7 +124,13 @@ Specify for which kind of updates you want to get notified.
 
 ```swift
 let realm = try! Realm()
-let token = realm.objects(Employee.self).notify(when: .insertedAndDeleted) { [weak self] (employees) in
+let token = realm.objects(Employee.self).notify(when: .inserted) { [weak self] (employees) in
+    
+    // Log all employees
+    employees.forEach { dump($0) }
+}
+
+let token = realm.objects(Employee.self).notify(when: [.inserted, .deleted]) { [weak self] (employees) in
     
     // Log all employees
     employees.forEach { dump($0) }
@@ -125,6 +142,12 @@ Get notified on initiation and on updates.
 ```swift
 let realm = try! Realm()
 let token = realm.objects(Employee.self).fireAndNotify(when: .inserted) { [weak self] (employees) in
+    
+    // Log all employees
+    employees.forEach { dump($0) }
+}
+
+let token = realm.objects(Employee.self).fireAndNotify(when: [.inserted, .modified]) { [weak self] (employees) in
     
     // Log all employees
     employees.forEach { dump($0) }

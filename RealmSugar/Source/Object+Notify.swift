@@ -20,6 +20,11 @@ public protocol NotifyRealmObject: class { }
 
 extension NotifyRealmObject where Self: Object {
     
+    public func fireAndNotify(for property: String, handler: @escaping ((Self) -> Void)) -> NotificationToken {
+        // Return notification block
+        return fireAndNotify(for: [property], handler: handler)
+    }
+    
     public func fireAndNotify(for properties: [String]? = nil, handler: @escaping ((Self) -> Void)) -> NotificationToken {
         
         // Fire right away
@@ -27,6 +32,10 @@ extension NotifyRealmObject where Self: Object {
         
         // Return notification block
         return notify(for: properties, handler: handler)
+    }
+    
+    public func notify(for property: String, handler: @escaping ((Self) -> Void)) -> NotificationToken {
+        return notify(for: [property], handler: handler)
     }
     
     public func notify(for properties: [String]? = nil, handler: @escaping ((Self) -> Void)) -> NotificationToken {
