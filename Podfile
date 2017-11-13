@@ -4,4 +4,4 @@ use_frameworks!
 
 target 'RealmSugar'
 
-pod 'RealmSwift'
+pod 'RealmSwift', '~> 3.0'

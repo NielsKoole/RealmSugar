@@ -50,7 +50,7 @@ extension NotifyRealmCollection {
         
         if fire { handler(self) }
         
-        return addNotificationBlock({ [weak self] (change) in
+        return observe({ [weak self] (change) in
             guard let s = self else { return }
             
             switch change {

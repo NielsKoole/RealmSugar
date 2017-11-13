@@ -39,7 +39,7 @@ extension NotifyRealmObject where Self: Object {
     }
     
     public func notify(for properties: [String]? = nil, handler: @escaping ((Self) -> Void)) -> NotificationToken {
-        return addNotificationBlock({ [weak self] (change) in
+        return observe({ [weak self] (change) in
             guard let s = self else { return }
             
             switch change {
